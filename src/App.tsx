@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { theme } from 'common/themes'
 import { ThemeProvider } from '@mui/material/styles';
@@ -8,11 +7,11 @@ import { StoreState } from 'stores/reducer'
 
 export default function App() {
 
+    //Lấy trạng thái mode (màn hình sáng/tối)
     const mode = useSelector((state: StoreState) => state.mode);
 
     return <ThemeProvider theme={theme(mode)}>
         <CssBaseline />
         <PortfolioScreen />
-        <p>{mode}</p>
     </ThemeProvider>
 }

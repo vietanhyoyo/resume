@@ -13,6 +13,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import ModeSwitch from 'components/mode_switch';
+import LanguageSwitch from 'components/language_switch';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   /**
@@ -23,9 +25,10 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = ['ABOUT', 'SKILLS', 'EXPERIENCES'];
 
 export default function HeaderNavbar(props: Props) {
+  const { t } = useTranslation();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -36,14 +39,14 @@ export default function HeaderNavbar(props: Props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        LOGO
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={t(item)} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -71,15 +74,24 @@ export default function HeaderNavbar(props: Props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            LOGO
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <ModeSwitch />
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
-              </Button>
-            ))}
+                {navItems.map((item) => (
+                  <Button key={item} sx={{ color: '#fff' }}>
+                    {t(item)}
+                  </Button>
+                ))}
+              </Box>
+          <Box sx={{
+            display: { xs: 'none', sm: 'flex' },
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}>
+            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+              <LanguageSwitch />
+              <ModeSwitch />
+            </Box>
           </Box>
         </Toolbar>
       </AppBar>
