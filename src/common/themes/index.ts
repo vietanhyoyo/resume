@@ -10,7 +10,19 @@ export const theme= (mode: string) => {
         colors: color,
     }
     const themeOptions = {
-        palette: themePalette(themeOption, mode)
+        palette: themePalette(themeOption, mode),
+        components: {
+            MuiContainer: {
+              styleOverrides: {
+                root: {
+                  '@media (min-width: 600px)': {
+                    paddingLeft: '0px',
+                    paddingRight: '0px',
+                  },
+                },
+              },
+            },
+          },
     };
     //Khởi tạo theme
     const themes = createTheme(themeOptions);

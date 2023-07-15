@@ -15,6 +15,7 @@ import Button from '@mui/material/Button';
 import ModeSwitch from 'components/mode_switch';
 import LanguageSwitch from 'components/language_switch';
 import { useTranslation } from 'react-i18next';
+import { CusStyles } from 'common/constants';
 
 interface Props {
   /**
@@ -58,8 +59,8 @@ export default function HeaderNavbar(props: Props) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar component="nav">
-        <Toolbar>
+      <AppBar component="nav" sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
+        <Toolbar sx={{ width: '100%', maxWidth: CusStyles.maxWith }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -77,12 +78,12 @@ export default function HeaderNavbar(props: Props) {
             LOGO
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                {navItems.map((item) => (
-                  <Button key={item} sx={{ color: '#fff' }}>
-                    {t(item)}
-                  </Button>
-                ))}
-              </Box>
+            {navItems.map((item) => (
+              <Button key={item} sx={{ color: '#fff' }}>
+                {t(item)}
+              </Button>
+            ))}
+          </Box>
           <Box sx={{
             display: { xs: 'none', sm: 'flex' },
             flexDirection: 'column',

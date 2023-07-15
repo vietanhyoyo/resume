@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Container, Typography, Grid, Paper, Toolbar } from '@mui/material';
 import HeaderNavbar from 'layouts/header_navbar';
 import { useTranslation } from 'react-i18next';
-import About from './About';
+import Top from './Top';
 
 function PortfolioScreen() {
 
@@ -10,9 +10,9 @@ function PortfolioScreen() {
 
     return <>
         <HeaderNavbar />
-        <Box component="main" sx={{ p: 3 }}>
+        <Box component="main">
             <Toolbar />
-            <About />
+            <Top />
         </Box>
     </>
 }

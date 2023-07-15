@@ -4,11 +4,14 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import TypingEffect from "components/typing_effect";
+import { CusStyles } from "common/constants";
+import { Paper } from "@mui/material";
 
-export default function About() {
+export default function Top() {
     return (
+        <Paper sx={{ px: 3,backgroundColor: "blueviolet" }}>
         <Container>
-            <Grid container spacing={2}>
+            <Grid container spacing={0} maxWidth={ CusStyles.maxWith }>
                 <Grid item xs={12} sm={6}>
                     <Box sx={{
                         display: 'flex',
@@ -46,5 +49,6 @@ export default function About() {
                 </Grid>
             </Grid>
         </Container>
+        </Paper>
     );
 }
